@@ -53,9 +53,12 @@ export default function Hero() {
   Get Quote
 </a>
 
-          <button className="bg-white border border-gray-300 hover:border-purple-500 hover:text-purple-600 transition px-8 py-4 rounded-full shadow-lg">
-            Explore Services
-          </button>
+        <a
+  href="#services"
+  className="inline-block px-8 py-4 rounded-full border border-purple-700 text-purple-700 font-semibold hover:bg-purple-700 hover:text-white transition duration-300"
+>
+  Explore Services
+</a>
 
         </motion.div>
 
