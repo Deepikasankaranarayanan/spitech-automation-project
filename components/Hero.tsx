@@ -46,9 +46,12 @@ export default function Hero() {
           className="mt-10 flex flex-wrap justify-center gap-5"
         >
 
-          <button className="bg-purple-600 hover:bg-purple-700 transition text-white px-8 py-4 rounded-full font-semibold shadow-2xl">
-            Get Quote
-          </button>
+         <a
+  href="#contact"
+  className="px-8 py-4 rounded-full bg-purple-700 text-white font-semibold hover:bg-purple-800 transition"
+>
+  Get Quote
+</a>
 
           <button className="bg-white border border-gray-300 hover:border-purple-500 hover:text-purple-600 transition px-8 py-4 rounded-full shadow-lg">
             Explore Services
