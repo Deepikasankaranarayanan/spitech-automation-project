@@ -68,7 +68,7 @@ export default function Footer() {
             <p>Chennai & Tenkasi</p>
 
             <p>
-              +91 9524409037
+              +91 7540039521
             </p>
 
             <p>
