@@ -1,43 +1,76 @@
 import { NextResponse } from "next/server";
-
 import connectDB from "@/lib/mongodb";
 import Contact from "@/models/Contact";
+import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
 
   try {
 
-    console.log("API HIT");
-
     await connectDB();
-
-    console.log("DB CONNECTED");
 
     const body = await req.json();
 
-    console.log(body);
-
     const contact = await Contact.create(body);
 
-    console.log("DATA SAVED");
+    // EMAIL SETUP
+
+    const transporter = nodemailer.createTransport({
+
+      service: "gmail",
+
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+
+    });
+
+    // SEND EMAIL
+
+    await transporter.sendMail({
+
+      from: process.env.EMAIL_USER,
+
+      to: process.env.EMAIL_USER,
+
+      subject: "New SPI-Tech Contact Form Message",
+
+      html: `
+        <h2>New Contact Form Submission</h2>
+
+        <p><strong>Name:</strong> ${body.name}</p>
+
+        <p><strong>Email:</strong> ${body.email}</p>
+
+        <p><strong>Phone:</strong> ${body.phone}</p>
+
+        <p><strong>Message:</strong> ${body.message}</p>
+      `,
+    });
 
     return NextResponse.json({
+
       success: true,
-      data: contact,
+      message: "Message sent successfully",
+
     });
 
   } catch (error) {
 
-    console.log("ERROR =>", error);
+    console.log(error);
 
     return NextResponse.json(
+
       {
         success: false,
-        message: "Server Error",
+        message: "Something went wrong",
       },
+
       {
         status: 500,
       }
+
     );
 
   }
