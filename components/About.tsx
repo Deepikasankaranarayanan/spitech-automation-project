@@ -27,7 +27,7 @@ const stats = [
 export default function About() {
   return (
     <Reveal>
-    <section className="py-28 px-6 bg-[#f8faff]">
+    <section id="about" className="py-28 px-6 bg-[#f8faff]">
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
 

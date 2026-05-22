@@ -69,7 +69,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-28 px-6 bg-gradient-to-br from-[#f5f7ff] via-[#eef2ff] to-[#fdf2f8]">
+    <section id="contact" className="py-28 px-6 bg-gradient-to-br from-[#f5f7ff] via-[#eef2ff] to-[#fdf2f8]">
 
       <div className="max-w-7xl mx-auto">
 

@@ -53,7 +53,7 @@ const services = [
 export default function Services() {
   return (
     <Reveal>
-<section className="py-28 px-6 bg-white">
+<section id="services" className="py-28 px-6 bg-white">
     
 
       <div className="max-w-7xl mx-auto">
