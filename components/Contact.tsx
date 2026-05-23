@@ -37,13 +37,19 @@ export default function Contact() {
       setLoading(true);
 
       const res = await axios.post(
-        "/api/contact",
-        formData
-      );
+  "https://formspree.io/f/mvzyqpqn",
+  formData,
+  {
+    headers: {
+      Accept: "application/json",
+    },
+  }
+);
+if (res.status === 200) {
 
-      if (res.data.success) {
+  alert("Message sent successfully 😄");
 
-        alert("Message sent successfully 😄");
+}
 
         setFormData({
           name: "",
