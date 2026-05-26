@@ -26,53 +26,48 @@ export default function Contact() {
 
   };
 
-  const handleSubmit = async (
-    e: React.FormEvent
-  ) => {
+ const handleSubmit = async (
+  e: React.FormEvent
+) => {
 
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
+  try {
 
-      setLoading(true);
+    setLoading(true);
 
-      const res = await axios.post(
-  "https://formspree.io/f/mvzyqpqn",
-  formData,
-  {
-    headers: {
-      Accept: "application/json",
-    },
-  }
-);
-if (res.status === 200) {
+    const res = await axios.post(
+      "/api/contact",
+      formData
+    );
 
-  alert("Message sent successfully 😄");
+    if (res.data.success) {
 
-}
+      alert("Message sent successfully 😄");
 
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
-
-      }
-
-    } catch (error) {
-
-      alert("Something went wrong");
-
-      console.log(error);
-
-    } finally {
-
-      setLoading(false);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
 
     }
 
-  };
+  } catch (error) {
+
+    console.log(error);
+
+    alert("Something went wrong");
+
+  } finally {
+
+    setLoading(false);
+
+  }
+
+};
+
 
   return (
     <section id="contact" className="py-28 px-6 bg-gradient-to-br from-[#f5f7ff] via-[#eef2ff] to-[#fdf2f8]">
