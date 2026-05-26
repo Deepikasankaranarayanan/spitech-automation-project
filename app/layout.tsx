@@ -2,8 +2,8 @@ import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 
 export const metadata = {
-  title: "SPi-Tech Automation",
-  description: "Advanced surveillance and automation solutions",
+  title: "SPI-Tech Automation",
+  description: "CCTV, Surveillance and Smart Automation Solutions",
 };
 
 export default function RootLayout({
