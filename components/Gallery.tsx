@@ -1,100 +1,92 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const projects = [
   {
-    title: "CCTV Installation",
-    image:
-      "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1974",
+    title: "CCTV Surveillance",
+    image: "/gallery/img1.jpg",
   },
-
   {
     title: "Biometric Access",
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070",
+    image: "/gallery/img2.jpg",
   },
-
-  {
-    title: "Networking Setup",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2074",
-  },
-
   {
     title: "Smart Automation",
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070",
+    image: "/gallery/img3.jpg",
+  },
+  {
+    title: "Networking Setup",
+    image: "/gallery/img4.jpg",
+  },
+  {
+    title: "Home Automation",
+    image: "/gallery/img5.jpg",
+  },
+  {
+    title: "Security Systems",
+    image: "/gallery/img6.jpg",
   },
 ];
 
 export default function Gallery() {
   return (
-    <section className="py-28 px-6 bg-white">
-
+    <section
+      id="gallery"
+      className="py-28 px-6 bg-white"
+    >
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
         <div className="text-center mb-20">
-
           <span className="text-purple-600 font-semibold uppercase tracking-widest">
-            Project Gallery
+            Gallery
           </span>
 
-          <h2 className="mt-6 text-5xl font-bold text-gray-900">
+          <h2 className="mt-4 text-5xl font-bold text-gray-900">
             Our Recent Projects
           </h2>
 
-          <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
-            Explore our latest surveillance, automation and enterprise
-            security installations across multiple industries.
+          <p className="mt-6 text-gray-600 text-lg max-w-2xl mx-auto">
+            Explore our latest surveillance, automation,
+            and security installation projects.
           </p>
-
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* Gallery Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           {projects.map((project, index) => (
-
             <motion.div
               key={index}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="relative overflow-hidden rounded-[40px] shadow-2xl group"
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="group relative overflow-hidden rounded-3xl shadow-xl"
             >
 
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-[400px] object-cover transition duration-500 group-hover:scale-110"
-              />
+              <div className="relative h-[320px] w-full">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition duration-500"
+                />
+              </div>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-10">
-
-                <div>
-
-                  <h3 className="text-3xl font-bold text-white">
-                    {project.title}
-                  </h3>
-
-                  <p className="mt-3 text-white/80">
-                    Premium enterprise security solution.
-                  </p>
-
-                </div>
-
+              <div className="absolute inset-0 bg-black/40 flex items-end p-6">
+                <h3 className="text-white text-2xl font-semibold">
+                  {project.title}
+                </h3>
               </div>
 
             </motion.div>
-
           ))}
 
         </div>
-
       </div>
-
     </section>
   );
 }
