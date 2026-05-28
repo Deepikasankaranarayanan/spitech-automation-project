@@ -15,8 +15,7 @@ const clients = [
   "/clients/client10.png",
   "/clients/client11.png",
   "/clients/client12.png",
-   "/clients/client13.png",
-];
+  "/clients/client13.png",
 ];
 
 export default function Clients() {
@@ -29,6 +28,7 @@ export default function Clients() {
 
         {/* Heading */}
         <div className="text-center mb-16">
+
           <span className="text-purple-600 font-semibold uppercase tracking-widest">
             Trusted By
           </span>
@@ -40,6 +40,7 @@ export default function Clients() {
           <p className="mt-6 text-gray-600 text-lg">
             Companies and businesses who trust our solutions.
           </p>
+
         </div>
 
         {/* Logo Slider */}
@@ -67,6 +68,7 @@ export default function Clients() {
           </div>
 
         </div>
+
       </div>
     </section>
   );
