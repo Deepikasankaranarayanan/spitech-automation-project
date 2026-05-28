@@ -9,6 +9,14 @@ const clients = [
   "/clients/client4.png",
   "/clients/client5.png",
   "/clients/client6.png",
+  "/clients/client7.png",
+  "/clients/client8.png",
+  "/clients/client9.png",
+  "/clients/client10.png",
+  "/clients/client11.png",
+  "/clients/client12.png",
+   "/clients/client13.png",
+];
 ];
 
 export default function Clients() {
@@ -50,7 +58,7 @@ export default function Clients() {
                   alt="client logo"
                   width={160}
                   height={90}
-                  className="object-contain grayscale hover:grayscale-0 transition duration-300"
+                  className="object-contain transition duration-300 hover:scale-110"
                 />
 
               </div>
